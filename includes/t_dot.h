@@ -6,7 +6,7 @@
 /*   By: apergens <apergens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/08/12 21:49:32 by apergens          #+#    #+#             */
-/*   Updated: 2014/08/13 23:13:17 by apergens         ###   ########.fr       */
+/*   Updated: 2014/08/15 07:09:19 by apergens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 
 typedef struct		s_dot
 {
+	int				x;
+	int				y;
+	int				z;
 	t_pos			pos;
 	struct s_dot	*left;
 	struct s_dot	*right;

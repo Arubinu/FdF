@@ -6,7 +6,7 @@
 /*   By: apergens <apergens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/07 20:52:33 by apergens          #+#    #+#             */
-/*   Updated: 2014/08/15 07:00:14 by apergens         ###   ########.fr       */
+/*   Updated: 2014/08/15 09:12:15 by apergens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@
 # include "t_dot.h"
 # include "t_env.h"
 # include "t_pos.h"
+
+# define INIT_X		800
+# define INIT_Y		135
+# define DECAL_X	18
+# define DECAL_Y	23.5
+# define DECAL_Z	3
+# define FACTOR		1.8
 
 extern int	errno;
 
@@ -46,5 +53,6 @@ int			ft_key_hook(int keycode, t_env *e);
 int			ft_mouse_hook(int button, int x, int y, t_env *e);
 
 void		ft_set_pos(t_pos *pos, int x, int y, int z);
+void		ft_algo_iso(t_pos *pos, int x, int y, int z);
 
 #endif

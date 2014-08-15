@@ -6,7 +6,7 @@
 /*   By: apergens <apergens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/08/12 22:26:09 by apergens          #+#    #+#             */
-/*   Updated: 2014/08/15 07:11:14 by apergens         ###   ########.fr       */
+/*   Updated: 2014/08/15 17:28:46 by apergens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static void	ft_tree_fdf_line(char **line, int i, t_dot *curr, t_dot *left)
 			curr->next->prev = curr;
 			curr = curr->next;
 		}
+		curr->edit = 0;
 		curr->x = j;
 		curr->y = i;
 		curr->z = ft_atoi(*(line + j));

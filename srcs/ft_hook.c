@@ -6,7 +6,7 @@
 /*   By: apergens <apergens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/08/12 21:47:14 by apergens          #+#    #+#             */
-/*   Updated: 2014/08/13 23:17:23 by apergens         ###   ########.fr       */
+/*   Updated: 2014/08/15 17:37:24 by apergens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ int		ft_mouse_hook(int button, int x, int y, t_env *e)
 int		ft_expose_hook(t_env *e)
 {
 	ft_putendl("EXPOSE");
-	ft_draw_all(e, ft_save_fdf(NULL)->right->right);
+	ft_draw_all(e, ft_save_fdf(NULL));
 	return (!e || 0);
 }

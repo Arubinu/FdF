@@ -6,7 +6,7 @@
 /*   By: apergens <apergens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/08/12 22:43:46 by apergens          #+#    #+#             */
-/*   Updated: 2014/08/13 11:20:39 by apergens         ###   ########.fr       */
+/*   Updated: 2014/08/15 17:09:13 by apergens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ static void	ft_draw_line_algo(t_env *e, t_pos *start, t_pos *end)
 
 void		ft_draw_line(t_env *e, t_pos *start, t_pos *end)
 {
-	if (start->x < end->x || start->y < end->y)
+	printf("  %d  %d  %d  %d\n", start->x, start->y, end->x, end->y);
+	if (start->x <= end->x && start->y <= end->y)
 		ft_draw_line_algo(e, start, end);
 	else
 		ft_draw_line_algo(e, end, start);

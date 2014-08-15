@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_dot.h                                            :+:      :+:    :+:   */
+/*   ft_algo_iso.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apergens <apergens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/08/12 21:49:32 by apergens          #+#    #+#             */
-/*   Updated: 2014/08/15 18:00:37 by apergens         ###   ########.fr       */
+/*   Created: 2014/08/15 09:11:15 by apergens          #+#    #+#             */
+/*   Updated: 2014/08/15 17:50:44 by apergens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef T_DOT_H
-# define T_DOT_H
+#include "ft_fdf.h"
 
-# include "t_pos.h"
-
-typedef struct		s_dot
+void	ft_algo_iso(t_pos *pos, int x, int y, int z)
 {
-	int				x;
-	int				y;
-	int				z;
-	int				x2;
-	int				y2;
-	int				z2;
-	int				edit;
-	t_pos			pos;
-	t_pos			save;
-	struct s_dot	*left;
-	struct s_dot	*right;
-	struct s_dot	*prev;
-	struct s_dot	*next;
-}					t_dot;
+	double	pre;
 
-#endif
+	pre = -0.471404520791 * FACTOR;
+	pos->x = 0.707106781187 * ((x - y) * DECAL_X * FACTOR);
+	pos->y = pre * (z * DECAL_Z);
+	pos->y -= pre * ((x + y) * DECAL_Y);
+	pos->x += 229;
+	/*
+	printf("  %d  %d  %d\n", x, y, z);
+	pos->x = x * 20;
+	pos->y = y * 20 - z;
+	*/
+	pos->x += 21;
+	pos->y += 21;
+	pos->z = 0;
+	return ;
+}

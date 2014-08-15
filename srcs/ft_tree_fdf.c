@@ -6,7 +6,7 @@
 /*   By: apergens <apergens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/08/12 22:26:09 by apergens          #+#    #+#             */
-/*   Updated: 2014/08/15 17:28:46 by apergens         ###   ########.fr       */
+/*   Updated: 2014/08/15 21:59:45 by apergens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,21 @@ void		ft_tree_fdf(char ***file)
 		ft_free_strtab(&line);
 	}
 	ft_free_strtab(file);
+	return ;
+}
+
+void		ft_tree_ini(void)
+{
+	t_dot			*all;
+	t_dot			*temp;
+
+	all = ft_save_fdf(NULL);
+	while (all != NULL)
+	{
+		temp = all;
+		while (temp != NULL && !(temp->edit = 0))
+			temp = temp->next;
+		all = all->right;
+	}
 	return ;
 }

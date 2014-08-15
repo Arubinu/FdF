@@ -6,12 +6,12 @@
 /*   By: apergens <apergens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/08/13 11:23:32 by apergens          #+#    #+#             */
-/*   Updated: 2014/08/15 18:05:17 by apergens         ###   ########.fr       */
+/*   Updated: 2014/08/15 23:03:24 by apergens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
-/*
+/* Itératif minimaliste
 void		ft_draw_all(t_env *e, t_dot *all)
 {
 	t_dot	*temp;
@@ -39,12 +39,15 @@ void		ft_draw_all(t_env *e, t_dot *all)
 	return ;
 }
 */
+// Itératif détaillé
 void		ft_draw_all(t_env *e, t_dot *all)
 {
+	t_ini	*ini;
 	t_dot	*temp;
 	t_pos	curr_pos;
 	t_pos	other_pos;
 
+	ini = ft_ini_fdf(NULL);
 	while (all != NULL)
 	{
 		temp = all;
@@ -54,6 +57,8 @@ void		ft_draw_all(t_env *e, t_dot *all)
 			{
 				temp->edit = 1;
 				ft_algo_iso(&curr_pos, temp->x, temp->y, temp->z);
+				curr_pos.x = curr_pos.x + ini->first_x;
+				curr_pos.y = curr_pos.y + ini->first_y;
 				temp->x2 = curr_pos.x;
 				temp->y2 = curr_pos.y;
 				temp->z2 = curr_pos.z;
@@ -79,7 +84,27 @@ void		ft_draw_all(t_env *e, t_dot *all)
 	}
 	return ;
 }
-/*
+/* Récursif minimaliste
+void		ft_draw_all(t_env *e, t_dot *all)
+{
+	if (all != NULL)
+	{
+		if (!all->edit && (all->edit = 1))
+			ft_algo_iso(&all->save, all->pos.x, all->pos.y, all->pos.z);
+		//mlx_pixel_put(e->mlx, e->win, all->save.x, all->save.y, 0xCC00CC);
+
+		if (all->prev)
+			ft_draw_line(e, &all->save, &all->prev->save);
+		if (all->left)
+			ft_draw_line(e, &all->save, &all->left->save);
+
+		ft_draw_all(e, all->next);
+		ft_draw_all(e, all->right);
+	}
+	return ;
+}
+*/
+/* Récursif détaillé
 void		ft_draw_all(t_env *e, t_dot *all)
 {
 	t_pos	curr_pos;

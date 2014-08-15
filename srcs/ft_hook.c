@@ -6,7 +6,7 @@
 /*   By: apergens <apergens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/08/12 21:47:14 by apergens          #+#    #+#             */
-/*   Updated: 2014/08/15 17:37:24 by apergens         ###   ########.fr       */
+/*   Updated: 2014/08/15 22:35:31 by apergens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,25 @@
 
 int		ft_key_hook(int keycode, t_env *e)
 {
-	if (e && keycode == 65307)
-		exit(0);
+	if (e)
+	{
+		if (keycode == 65307)
+			exit(0);
+		else if (keycode == 65451)
+			ft_ini_edit(-4, -9, 0.1, -6);
+		else if (keycode == 65453)
+			ft_ini_edit(4, 9, -0.1, -6);
+		else if (keycode == 65362)
+			ft_ini_edit(0, -5, 0, -2);
+		else if (keycode == 65364)
+			ft_ini_edit(0, 5, 0, -2);
+		else if (keycode == 65361)
+			ft_ini_edit(-5, 0, 0, -1);
+		else if (keycode == 65363)
+			ft_ini_edit(5, 0, 0, -1);
+		mlx_clear_window(e->mlx, e->win);
+		ft_draw_all(e, ft_save_fdf(NULL));
+	}
 	return (0);
 }
 

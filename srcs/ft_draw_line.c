@@ -6,7 +6,7 @@
 /*   By: apergens <apergens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/08/12 22:43:46 by apergens          #+#    #+#             */
-/*   Updated: 2014/08/15 17:09:13 by apergens         ###   ########.fr       */
+/*   Updated: 2014/08/15 22:36:26 by apergens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ static void	ft_draw_line_loop(t_env *e, t_pos *start, t_pos *dx, t_pos *dy)
 		else
 			ft_set_pos(start, start->x + dy->x, start->y + dy->y, 0);
 	}
+	return ;
 }
 
 static void	ft_draw_line_algo(t_env *e, t_pos *start, t_pos *end)
@@ -62,11 +63,12 @@ static void	ft_draw_line_algo(t_env *e, t_pos *start, t_pos *end)
 	dx.z = size.x;
 	dy.z = size.y;
 	ft_draw_line_loop(e, start, &dx, &dy);
+	return ;
 }
 
 void		ft_draw_line(t_env *e, t_pos *start, t_pos *end)
 {
-	printf("  %d  %d  %d  %d\n", start->x, start->y, end->x, end->y);
+	//printf("  %d  %d  %d  %d\n", start->x, start->y, end->x, end->y);
 	if (start->x <= end->x && start->y <= end->y)
 		ft_draw_line_algo(e, start, end);
 	else

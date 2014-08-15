@@ -6,7 +6,7 @@
 #    By: apergens <apergens@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/09/25 08:56:14 by apergens          #+#    #+#              #
-#    Updated: 2014/08/15 09:11:59 by apergens         ###   ########.fr        #
+#    Updated: 2014/08/15 19:19:26 by apergens         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ HDR		= $(foreach var, $(DIR), $(var)/$(var).a)
 
 FILES	= main ft_save_fdf ft_exit ft_parse_file ft_check_file ft_start_mlx \
 		ft_tree_fdf ft_draw_line ft_hook ft_declare_size ft_set_pos \
-		ft_draw_all ft_algo_iso
+		ft_draw_all ft_algo_iso ft_ini_fdf
 SRC		= $(addsuffix .c, $(FILES))
 OBJ		= $(patsubst %.c,objs/%.o,$(SRC))
 

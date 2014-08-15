@@ -6,7 +6,7 @@
 /*   By: apergens <apergens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/08/12 22:26:09 by apergens          #+#    #+#             */
-/*   Updated: 2014/08/15 06:49:46 by apergens         ###   ########.fr       */
+/*   Updated: 2014/08/15 07:01:00 by apergens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void		ft_tree_fdf(char ***file)
 			ft_exit(8, "Memory allocation failure");
 			return ;
 		}
-		ft_draw_fdf_line(line, i, &fdf[i], i ? &fdf[i - 1] : NULL);
+		ft_tree_fdf_line(line, i, &fdf[i], i ? &fdf[i - 1] : NULL);
 		ft_free_strtab(&line);
 	}
 	ft_free_strtab(file);

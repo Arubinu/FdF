@@ -6,7 +6,7 @@
 /*   By: apergens <apergens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/07 20:52:33 by apergens          #+#    #+#             */
-/*   Updated: 2014/08/13 17:23:51 by apergens         ###   ########.fr       */
+/*   Updated: 2014/08/15 07:00:14 by apergens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int			ft_check_file(char *file);
 int			ft_parse_file(char *file, char ***out);
 
 void		ft_start_mlx(t_env *e);
-void		ft_draw_fdf(char ***file);
+void		ft_tree_fdf(char ***file);
 void		ft_draw_all(t_env *e, t_dot *all);
 void		ft_draw_line(t_env *e, t_pos *start, t_pos *end);
 

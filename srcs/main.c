@@ -6,7 +6,7 @@
 /*   By: apergens <apergens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/08/12 20:01:11 by apergens          #+#    #+#             */
-/*   Updated: 2014/08/15 07:02:14 by apergens         ###   ########.fr       */
+/*   Updated: 2014/08/16 08:27:20 by apergens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ int		main(int argc, char **argv)
 	else if (error == -3)
 		return (ft_exit(6, "Non-compliant file"));
 	ft_tree_fdf(&file);
-	ft_start_mlx(&env);
+	ft_start_mlx(&env, *argv);
 	return (0);
 }

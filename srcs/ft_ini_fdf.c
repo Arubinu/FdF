@@ -6,7 +6,7 @@
 /*   By: apergens <apergens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/08/13 15:47:30 by apergens          #+#    #+#             */
-/*   Updated: 2014/08/15 22:00:21 by apergens         ###   ########.fr       */
+/*   Updated: 2014/08/16 11:21:38 by apergens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_ini	*ft_ini_fdf(t_ini *ini)
 	return (&save);
 }
 
-void	ft_ini_edit(int first_x, int first_y, double factor, int choice)
+t_ini	*ft_ini_edit(int first_x, int first_y, double factor, int choice)
 {
 	int				add;
 	t_ini			*ini;
@@ -48,5 +48,5 @@ void	ft_ini_edit(int first_x, int first_y, double factor, int choice)
 	if (choice == 3 || choice >= 5)
 		ini->factor = add ? ini->factor + factor : factor;
 	ft_tree_ini();
-	return ;
+	return (ini);
 }

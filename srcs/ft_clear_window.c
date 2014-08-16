@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_start_mlx.c                                     :+:      :+:    :+:   */
+/*   ft_clear_window.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apergens <apergens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/08/12 21:39:07 by apergens          #+#    #+#             */
-/*   Updated: 2014/08/16 11:11:29 by apergens         ###   ########.fr       */
+/*   Created: 2014/08/16 11:24:07 by apergens          #+#    #+#             */
+/*   Updated: 2014/08/16 11:25:21 by apergens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
 
-void	ft_start_mlx(t_env *e, char *name)
+void	ft_clear_window(t_env *e)
 {
-	char	*basename;
+	int		calc;
 	t_ini	*ini;
 
 	ini = ft_ini_fdf(NULL);
-	basename = ft_strrchr(name, '/');
-	basename = (basename != NULL) ? basename + 1 : name;
-	ini->name = basename;
-	ft_declare_size(&ini->screen_x, &ini->screen_y, ft_ini_fdf(NULL));
-	e->mlx = mlx_init();
-	e->win = mlx_new_window(e->mlx, ini->screen_x, ini->screen_y, "fdf");
-	mlx_key_hook(e->win, ft_key_hook, e);
-	mlx_mouse_hook(e->win, ft_mouse_hook, e);
-	mlx_expose_hook(e->win, ft_expose_hook, e);
-	mlx_loop(e->mlx);
+	mlx_clear_window(e->mlx, e->win);
+	if (ini->name != NULL)
+		mlx_string_put(e->mlx, e->win, 5, 15, 0x5555EE, ini->name);
+	calc = ini->screen_x - 106;
+	mlx_string_put(e->mlx, e->win, calc, 15, 0xEE5555, "+ - < > ^ v SUPPR");
 	return ;
 }

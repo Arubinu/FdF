@@ -6,7 +6,7 @@
 /*   By: apergens <apergens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/08/12 22:26:09 by apergens          #+#    #+#             */
-/*   Updated: 2014/08/15 21:59:45 by apergens         ###   ########.fr       */
+/*   Updated: 2014/08/16 10:49:32 by apergens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ static void	ft_tree_fdf_line(char **line, int i, t_dot *curr, t_dot *left)
 	int		j;
 
 	j = -1;
-	ft_save_fdf(i ? NULL : curr);
+	ft_save_fdf(curr, 2);
+	ft_save_fdf(i ? NULL : curr, 0);
 	while (curr != NULL && ++j >= 0 && *(line + j) != NULL)
 	{
 		if (!j)
@@ -41,6 +42,8 @@ static void	ft_tree_fdf_line(char **line, int i, t_dot *curr, t_dot *left)
 		if (left)
 			left->right = curr;
 		left = (left && left->next) ? left->next : NULL;
+		ft_save_fdf((!i && curr != NULL) ? curr : NULL, 1);
+		ft_save_fdf((curr != NULL) ? curr : NULL, 3);
 	}
 	return ;
 }
@@ -79,7 +82,7 @@ void		ft_tree_ini(void)
 	t_dot			*all;
 	t_dot			*temp;
 
-	all = ft_save_fdf(NULL);
+	all = ft_save_fdf(NULL, 0);
 	while (all != NULL)
 	{
 		temp = all;
